@@ -1,0 +1,36 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>My first ES6 iterables</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <script>
+      const notes = [
+        { name: "Hamdi", note: 65 },
+        { name: "Tarek", note: 60 },
+        { name: "Daly", note: 50 },
+        { name: "Nour", note: 54 },
+        { name: "Hani", note: 64 }
+      ];
+      const marks = notes.map(x => {
+        x.degree =
+          x.note < 25
+            ? "D"
+            : x.note >= 25 && x.note < 50
+            ? "C"
+            : x.note >= 50 && x.note < 75
+            ? "B"
+            : x.note >= 75
+            ? "A"
+            : "N/A";
+      });
+      const majors = notes.filter(x => x.note >= 50);
+      const average = notes.reduce((total, x) => total += x.note, 0) / notes.length;
+      console.table(majors);
+      console.log(average);
+    </script>
+  </body>
+</html>
